@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NIKE 공식 온라인 스토어 - Just Do It</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800;1,900&family=Pretendard:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --nike-black: #111111;
+      --nike-white: #ffffff;
+      --nike-gray-bg: #f5f5f5;
+      --nike-gray-light: #e5e5e5;
+      --nike-gray-text: #707072;
+      --nike-orange: #ff5400;
+      --nike-volt: #ccff00;
+      --nike-blue: #0070f3;
+      --border-color: #e5e5e5;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.1);
+      --shadow-lg: 0 16px 40px rgba(0,0,0,0.14);
+      --radius: 12px;
+      --font-brand: 'Montserrat', sans-serif;
+      --font-body: 'Pretendard', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--nike-white);
+      color: var(--nike-black);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* -------------------------------------------------------------
+       1. 최상단 보조 공지 바
+       ------------------------------------------------------------- */
+    .top-promo-bar {
+      background: var(--nike-gray-bg);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.45rem 1.5rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .top-promo-bar a {
+      color: var(--nike-black);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* -------------------------------------------------------------
+       2. 헤더 네비게이션
+       ------------------------------------------------------------- */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 2.5rem;
+      transition: all 0.25s ease;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .brand-logo svg {
+      width: 58px;
+      height: 22px;
+      fill: var(--nike-black);
+      transition: transform 0.2s ease;
+    }
+
+    .brand-logo:hover svg {
+      transform: scale(1.05);
+    }
+
+    nav.main-nav {
+      display: flex;
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    .nav-item {
+      font-family: var(--font-brand);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--nike-black);
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      padding: 0.4rem 0;
+      transition: color 0.2s ease;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-item:hover, .nav-item.active {
+      color: var(--nike-orange);
+    }
+
+    .nav-item.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--nike-orange);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--nike-gray-bg);
+      border-radius: 9999px;
+      padding: 0.45rem 1rem;
+      width: 190px;
+      transition: width 0.3s ease, background-color 0.2s ease;
+    }
+
+    .search-box:focus-within {
+      width: 260px;
+      background: #ededed;
+    }
+
+    .search-box input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 0.88rem;
+      font-family: var(--font-body);
+      width: 100%;
+      margin-left: 0.4rem;
+    }
+
+    .icon-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0.45rem;
+      border-radius: 50%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s ease;
+    }
+
+    .icon-btn:hover {
+      background: var(--nike-gray-bg);
+    }
+
+    .badge-count {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      background: var(--nike-black);
+      color: var(--nike-white);
+      font-size: 0.68rem;
+      font-weight: 800;
+      font-family: var(--font-brand);
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* -------------------------------------------------------------
+       3. 히어로 배너 섹션 (HERO)
+       ------------------------------------------------------------- */
+    .hero-section {
+      position: relative;
+      background: #000;
+      color: #fff;
+      overflow: hidden;
+      padding: 5rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 520px;
+    }
+
+    .hero-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 50%, rgba(255, 84, 0, 0.25) 0%, transparent 60%),
+                  radial-gradient(circle at 30% 90%, rgba(0, 112, 243, 0.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 560px;
+    }
+
+    .hero-tag {
+      font-family: var(--font-brand);
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      color: var(--nike-orange);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+    }
+
+    .hero-title {
+      font-family: var(--font-brand);
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      font-style: italic;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: #b3b3b3;
+      margin-bottom: 2rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn {
+      font-family: var(--font-brand);
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--nike-white);
+      color: var(--nike-black);
+    }
+
+    .btn-primary:hover {
+      background: var(--nike-gray-bg);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(255,255,255,0.25);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--nike-white);
+      border: 1.5px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--nike-white);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-visual {
+      position: relative;
+      z-index: 2;
+      width: 48%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-visual img {
+      max-width: 105%;
+      height: auto;
+      filter: drop-shadow(0 25px 35px rgba(0,0,0,0.7));
+      transform: rotate(-16deg) scale(1.08);
+      transition: transform 0.4s ease;
+      animation: floatShoe 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatShoe {
+      0% { transform: rotate(-16deg) translateY(0); }
+      100% { transform: rotate(-14deg) translateY(-14px); }
+    }
+
+    /* -------------------------------------------------------------
+       4. 카테고리 필터 바
+       ------------------------------------------------------------- */
+    .filter-section {
+      padding: 2.5rem 2.5rem 1.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+    }
+
+    .section-title {
+      font-family: var(--font-brand);
+      font-size: 1.85rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+
+    .category-pills {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .pill-btn {
+      background: var(--nike-gray-bg);
+      border: 1px solid transparent;
+      padding: 0.5rem 1.15rem;
+      border-radius: 9999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--nike-black);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .pill-btn:hover {
+      background: #e9e9e9;
+    }
+
+    .pill-btn.active {
+      background: var(--nike-black);
+      color: var(--nike-white);
+    }
+
+    /* -------------------------------------------------------------
+       5. 상품 그리드 (PRODUCT GRID)
+       ------------------------------------------------------------- */
+    .catalog-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2.5rem 4rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: var(--nike-white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .product-thumb-box {
+      background: var(--nike-gray-bg);
+      aspect-ratio: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: var(--radius);
+    }
+
+    .product-thumb-box img {
+      width: 90%;
+      height: 90%;
+      object-fit: contain;
+      transition: transform 0.35s ease;
+    }
+
+    .product-card:hover .product-thumb-box img {
+      transform: scale(1.08) rotate(-4deg);
+    }
+
+    .badge-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--nike-black);
+      color: var(--nike-white);
+      font-size: 0.72rem;
+      font-weight: 800;
+      font-family: var(--font-brand);
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .badge-tag.sale {
+      background: var(--nike-orange);
+    }
+
+    .wish-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255,255,255,0.9);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .wish-btn:hover {
+      transform: scale(1.15);
+      background: var(--nike-white);
+    }
+
+    .wish-btn.active svg {
+      fill: var(--nike-orange);
+      stroke: var(--nike-orange);
+    }
+
+    .product-info {
+      padding: 1rem 0.25rem 0.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .product-category-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--nike-orange);
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .product-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--nike-black);
+      margin-bottom: 0.3rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .product-subtitle {
+      font-size: 0.84rem;
+      color: var(--nike-gray-text);
+      margin-bottom: 0.75rem;
+    }
+
+    .product-price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 0.5rem;
+    }
+
+    .price-text {
+      font-family: var(--font-brand);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--nike-black);
+    }
+
+    .original-price {
+      font-size: 0.9rem;
+      color: var(--nike-gray-text);
+      text-decoration: line-through;
+      margin-left: 0.4rem;
+      font-weight: 500;
+    }
+
+    .add-cart-btn-mini {
+      background: var(--nike-black);
+      color: var(--nike-white);
+      border: none;
+      padding: 0.5rem 0.9rem;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .add-cart-btn-mini:hover {
+      background: var(--nike-orange);
+      transform: scale(1.05);
+    }
+
+    /* -------------------------------------------------------------
+       6. 브랜드 스토리 배너
+       ------------------------------------------------------------- */
+    .brand-banner {
+      background: var(--nike-gray-bg);
+      margin: 2rem 2.5rem 5rem;
+      border-radius: 20px;
+      padding: 4rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .banner-text {
+      max-width: 580px;
+    }
+
+    .banner-text h3 {
+      font-family: var(--font-brand);
+      font-size: 2.8rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-style: italic;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .banner-text p {
+      font-size: 1.05rem;
+      color: var(--nike-gray-text);
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+    }
+
+    /* -------------------------------------------------------------
+       7. 장바구니 사이드바 드로어 (CART DRAWER)
+       ------------------------------------------------------------- */
+    .cart-drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .cart-drawer-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 440px;
+      max-width: 90vw;
+      background: var(--nike-white);
+      z-index: 2001;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.32, 1, 0.23, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+    }
+
+    .cart-drawer-backdrop.open .cart-drawer {
+      transform: translateX(0);
+    }
+
+    .cart-header {
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .cart-title {
+      font-family: var(--font-brand);
+      font-size: 1.25rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .close-drawer-btn {
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.3rem;
+      line-height: 1;
+    }
+
+    .cart-items-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .empty-cart-msg {
+      text-align: center;
+      padding: 4rem 1rem;
+      color: var(--nike-gray-text);
+    }
+
+    .empty-cart-msg svg {
+      width: 54px;
+      height: 54px;
+      fill: #bbb;
+      margin-bottom: 1rem;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 1rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .cart-item-thumb {
+      width: 90px;
+      height: 90px;
+      background: var(--nike-gray-bg);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .cart-item-thumb img {
+      width: 85%;
+      height: 85%;
+      object-fit: contain;
+    }
+
+    .cart-item-details {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .cart-item-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .cart-item-meta {
+      font-size: 0.82rem;
+      color: var(--nike-gray-text);
+    }
+
+    .cart-item-price {
+      font-family: var(--font-brand);
+      font-weight: 800;
+      font-size: 0.98rem;
+    }
+
+    .cart-item-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--nike-gray-bg);
+      border-radius: 6px;
+      padding: 0.2rem 0.5rem;
+    }
+
+    .qty-btn {
+      background: transparent;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      width: 20px;
+      height: 20px;
+    }
+
+    .remove-item-btn {
+      background: transparent;
+      border: none;
+      color: #999;
+      font-size: 0.8rem;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .remove-item-btn:hover {
+      color: var(--nike-orange);
+    }
+
+    .cart-footer {
+      padding: 1.5rem;
+      border-top: 1px solid var(--border-color);
+      background: #fafafa;
+    }
+
+    .cart-summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--nike-gray-text);
+    }
+
+    .cart-summary-total {
+      display: flex;
+      justify-content: space-between;
+      margin: 1rem 0 1.25rem;
+      font-size: 1.15rem;
+      font-weight: 800;
+      font-family: var(--font-brand);
+      color: var(--nike-black);
+    }
+
+    .checkout-btn {
+      width: 100%;
+      background: var(--nike-black);
+      color: var(--nike-white);
+      padding: 1rem;
+      border: none;
+      border-radius: 9999px;
+      font-family: var(--font-brand);
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.15s ease;
+    }
+
+    .checkout-btn:hover {
+      background: var(--nike-orange);
+      transform: translateY(-2px);
+    }
+
+    /* -------------------------------------------------------------
+       8. 상품 상세 모달 (PRODUCT MODAL)
+       ------------------------------------------------------------- */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(6px);
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .product-modal {
+      background: var(--nike-white);
+      width: 860px;
+      max-width: 96vw;
+      max-height: 90vh;
+      border-radius: 16px;
+      overflow-y: auto;
+      display: flex;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      transform: scale(0.96);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-backdrop.open .product-modal {
+      transform: scale(1);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--nike-gray-bg);
+      border: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 1.25rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .modal-img-col {
+      width: 50%;
+      background: var(--nike-gray-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem;
+    }
+
+    .modal-img-col img {
+      width: 100%;
+      max-height: 360px;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15));
+    }
+
+    .modal-info-col {
+      width: 50%;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .size-selector-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+      margin: 1.25rem 0 1.5rem;
+    }
+
+    .size-btn {
+      border: 1px solid var(--border-color);
+      background: var(--nike-white);
+      padding: 0.65rem 0;
+      border-radius: 6px;
+      font-family: var(--font-brand);
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .size-btn:hover {
+      border-color: var(--nike-black);
+    }
+
+    .size-btn.selected {
+      background: var(--nike-black);
+      color: var(--nike-white);
+      border-color: var(--nike-black);
+    }
+
+    /* -------------------------------------------------------------
+       9. 토스트 알림 (TOAST)
+       ------------------------------------------------------------- */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      pointer-events: none;
+    }
+
+    .toast-msg {
+      background: var(--nike-black);
+      color: var(--nike-white);
+      padding: 0.9rem 1.4rem;
+      border-radius: 9999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      animation: slideUpToast 0.3s ease, fadeOutToast 0.3s ease 2.7s forwards;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    @keyframes slideUpToast {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeOutToast {
+      to { transform: translateY(-10px); opacity: 0; }
+    }
+
+    /* -------------------------------------------------------------
+       10. 푸터 (FOOTER)
+       ------------------------------------------------------------- */
+    footer.site-footer {
+      background: var(--nike-black);
+      color: #999;
+      padding: 4.5rem 2.5rem 2rem;
+      font-size: 0.85rem;
+    }
+
+    .footer-columns {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-col h4 {
+      color: var(--nike-white);
+      font-family: var(--font-brand);
+      font-size: 0.92rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-col ul li a {
+      color: #7e7e7e;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--nike-white);
+    }
+
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 0 auto;
+      border-top: 1px solid #222;
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* -------------------------------------------------------------
+       11. 반응형 스타일
+       ------------------------------------------------------------- */
+    @media (max-width: 900px) {
+      header.site-header { padding: 0.8rem 1.2rem; }
+      nav.main-nav { display: none; }
+      .hero-section {
+        flex-direction: column;
+        padding: 3rem 1.5rem;
+        text-align: center;
+      }
+      .hero-content { margin-bottom: 2rem; }
+      .hero-title { font-size: 2.8rem; }
+      .hero-visual { width: 100%; }
+      .brand-banner { margin: 1.5rem 1rem 3rem; padding: 2.5rem 1.5rem; }
+      .product-modal { flex-direction: column; }
+      .modal-img-col, .modal-info-col { width: 100%; padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 공지 탑 바 -->
+  <div class="top-promo-bar">
+    <span>신규 멤버 가입 시 10% 웰컴 쿠폰 즉시 증정 & 전 상품 무료 배송</span>
+    <a href="membership.html">멤버 가입하기</a>
+  </div>
+
+  <!-- 상단 메인 헤더 -->
+  <header class="site-header">
+    <div class="brand-logo" onclick="filterCategory('all')">
+      <!-- Nike Swoosh SVG Logo -->
+      <svg viewBox="0 0 24 24">
+        <path d="M21.707 5.293c-2.484 1.834-5.26 3.633-8.082 5.309-3.21 1.905-6.402 3.619-9.585 5.141-.83.398-1.748.795-2.61 1.139-.773.308-1.343.344-1.424-.265-.078-.582.434-1.298 1.157-2.146 1.849-2.169 4.398-4.708 7.378-7.348 3.518-3.116 7.644-5.592 11.836-7.079.524-.186.994-.093 1.33.249z"/>
+      </svg>
+    </div>
+
+    <nav class="main-nav">
+      <a class="nav-item active" onclick="filterCategory('all', this)">New & Featured</a>
+      <a class="nav-item" onclick="filterCategory('running', this)">Running</a>
+      <a class="nav-item" onclick="filterCategory('lifestyle', this)">Lifestyle</a>
+      <a class="nav-item" onclick="filterCategory('basketball', this)">Basketball</a>
+      <a class="nav-item" onclick="filterCategory('jordan', this)">Jordan</a>
+      <a class="nav-item" onclick="filterCategory('sale', this)">Sale</a>
+      <a class="nav-item" href="membership.html" style="color:var(--nike-orange);">Membership</a>
+    </nav>
+
+    <div class="header-actions">
+      <!-- 검색 박스 -->
+      <div class="search-box">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="searchInput" placeholder="검색 (예: 에어포스, 조던)" oninput="handleSearch()">
+      </div>
+
+      <!-- 위시리스트 버튼 -->
+      <button class="icon-btn" onclick="openWishlistModal()" title="위시리스트">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+        <span class="badge-count" id="wishCount">0</span>
+      </button>
+
+      <!-- 장바구니 버튼 -->
+      <button class="icon-btn" onclick="toggleCartDrawer(true)" title="장바구니">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <span class="badge-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 메인 히어로 섹션 -->
+  <section class="hero-section">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-tag">NEW INNOVATION</span>
+      <h1 class="hero-title">AIR MAX<br>PULSE</h1>
+      <p class="hero-subtitle">런던 언더그라운드 뮤직 씬에서 영감을 받은 에너지. 혁신적인 포인트 로드 에어 쿠셔닝으로 한계 없는 탄성을 경험해 보세요.</p>
+      <div class="hero-cta-group">
+        <button class="btn btn-primary" onclick="openProductModal(1)">지금 구매하기</button>
+        <button class="btn btn-outline" onclick="filterCategory('running')">시리즈 둘러보기</button>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80" alt="Nike Hero Sneaker">
+    </div>
+  </section>
+
+  <!-- 카테고리 필터 바 -->
+  <section class="filter-section">
+    <div>
+      <h2 class="section-title" id="catalogTitle">NEW RELEASES (8)</h2>
+    </div>
+    <div class="category-pills">
+      <button class="pill-btn active" onclick="filterCategory('all', this)">전체</button>
+      <button class="pill-btn" onclick="filterCategory('running', this)">러닝</button>
+      <button class="pill-btn" onclick="filterCategory('lifestyle', this)">라이프스타일</button>
+      <button class="pill-btn" onclick="filterCategory('basketball', this)">농구</button>
+      <button class="pill-btn" onclick="filterCategory('jordan', this)">조던</button>
+      <button class="pill-btn" onclick="filterCategory('sale', this)">할인 상품</button>
+    </div>
+  </section>
+
+  <!-- 상품 카탈로그 그리드 -->
+  <main class="catalog-container">
+    <div class="product-grid" id="productGrid">
+      <!-- 제품 리스트가 자바스크립트로 동적 렌더링됩니다 -->
+    </div>
+  </main>
+
+  <!-- 브랜드 캠페인 배너 -->
+  <section class="brand-banner">
+    <div class="banner-text">
+      <h3>NEVER STOP<br>PUSHING FORWARD.</h3>
+      <p>당신의 도전에 완벽함을 더해주는 기술력. 나이키 멤버가 되어 한정판 스니커즈 선착순 응모(SNKRS Draw)와 전용 특별 혜택을 놓치지 마세요.</p>
+      <button class="btn btn-primary" style="background:#000; color:#fff;" onclick="location.href='membership.html'">멤버 가입하기</button>
+    </div>
+    <div style="max-width: 440px;">
+      <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=700&q=80" alt="Nike Campaign" style="width:100%; border-radius:12px; filter:grayscale(20%);">
+    </div>
+  </section>
+
+  <!-- -------------------------------------------------------------
+       장바구니 사이드바 드로어 (CART DRAWER)
+       ------------------------------------------------------------- -->
+  <div class="cart-drawer-backdrop" id="cartBackdrop" onclick="toggleCartDrawer(false)">
+    <div class="cart-drawer" onclick="event.stopPropagation()">
+      <div class="cart-header">
+        <h3 class="cart-title">장바구니 (<span id="cartHeaderCount">0</span>)</h3>
+        <button class="close-drawer-btn" onclick="toggleCartDrawer(false)">&times;</button>
+      </div>
+
+      <div class="cart-items-list" id="cartItemsList">
+        <!-- 장바구니 아이템들 동적 렌더링 -->
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-summary-row">
+          <span>소계</span>
+          <span id="cartSubtotal">₩0</span>
+        </div>
+        <div class="cart-summary-row">
+          <span>배송비</span>
+          <span id="cartShipping">무료</span>
+        </div>
+        <div class="cart-summary-total">
+          <span>총 결제금액</span>
+          <span id="cartTotal">₩0</span>
+        </div>
+        <button class="checkout-btn" onclick="handleCheckout()">주문 결제하기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- -------------------------------------------------------------
+       상품 상세 정보 모달 (PRODUCT MODAL)
+       ------------------------------------------------------------- -->
+  <div class="modal-backdrop" id="productModal" onclick="closeProductModal()">
+    <div class="product-modal" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeProductModal()">&times;</button>
+      <div class="modal-img-col">
+        <img id="modalImg" src="" alt="Nike Sneaker Detail">
+      </div>
+      <div class="modal-info-col">
+        <div>
+          <span class="product-category-label" id="modalCategory">LIFESTYLE</span>
+          <h2 style="font-size:1.6rem; font-weight:800; margin-bottom:0.5rem;" id="modalName">나이키 에어포스 1</h2>
+          <div style="font-size:1.35rem; font-weight:800; font-family:var(--font-brand); margin-bottom:1.25rem;" id="modalPrice">₩139,000</div>
+          <p style="font-size:0.92rem; color:var(--nike-gray-text); line-height:1.6; margin-bottom:1.5rem;" id="modalDesc">
+            클래식한 디자인과 궁극의 편안함. 가죽 오버레이와 산뜻한 컬러웨이로 어디에나 완벽하게 매치됩니다.
+          </p>
+
+          <div style="font-weight:700; font-size:0.92rem; margin-bottom:0.5rem;">사이즈 선택 (mm)</div>
+          <div class="size-selector-grid" id="sizeSelectorGrid">
+            <button class="size-btn" onclick="selectSize(240, this)">240</button>
+            <button class="size-btn" onclick="selectSize(250, this)">250</button>
+            <button class="size-btn selected" onclick="selectSize(260, this)">260</button>
+            <button class="size-btn" onclick="selectSize(265, this)">265</button>
+            <button class="size-btn" onclick="selectSize(270, this)">270</button>
+            <button class="size-btn" onclick="selectSize(275, this)">275</button>
+            <button class="size-btn" onclick="selectSize(280, this)">280</button>
+            <button class="size-btn" onclick="selectSize(290, this)">290</button>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px; margin-top:1.5rem;">
+          <button class="btn btn-primary" style="background:#000; color:#fff; flex:1;" onclick="addCurrentModalToCart()">장바구니 담기</button>
+          <button class="btn btn-outline" style="border-color:#111; color:#111;" onclick="toggleCurrentModalWishlist()">♡ 위시리스트</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 푸터 -->
+  <footer class="site-footer">
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h4>FEATURED</h4>
+        <ul>
+          <li><a href="#">에어포스 1</a></li>
+          <li><a href="#">조던 1 레트로</a></li>
+          <li><a href="#">에어맥스 시리즈</a></li>
+          <li><a href="#">베이퍼플라이 러닝</a></li>
+          <li><a href="#">나이키 덩크 로우</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>GET HELP</h4>
+        <ul>
+          <li><a href="#">주문 배송 조회</a></li>
+          <li><a href="#">반품 및 환불 안내</a></li>
+          <li><a href="#">결제 수단</a></li>
+          <li><a href="#">고객센터 문의</a></li>
+          <li><a href="#">매장 안내</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>ABOUT NIKE</h4>
+        <ul>
+          <li><a href="#">브랜드 뉴스</a></li>
+          <li><a href="#">채용 정보</a></li>
+          <li><a href="#">지속 가능성</a></li>
+          <li><a href="#">투자자 정보</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>JOIN US</h4>
+        <p style="color:#777; margin-bottom:1rem; line-height:1.5;">최신 스니커즈 발매 소식과 멤버 전용 시크릿 혜택을 뉴스레터로 받아보세요.</p>
+        <div style="display:flex; gap:6px;">
+          <input type="email" placeholder="이메일 입력" style="background:#222; border:1px solid #333; color:#fff; padding:0.5rem 0.8rem; border-radius:4px; font-size:0.85rem; width:100%;">
+          <button style="background:#fff; color:#000; border:none; padding:0.5rem 0.9rem; border-radius:4px; font-weight:700; cursor:pointer;" onclick="showToast('뉴스레터 구독이 완료되었습니다!')">구독</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 NIKE, Inc. All Rights Reserved. 대한민국</div>
+      <div style="display:flex; gap:1.5rem; color:#777; font-size:0.8rem;">
+        <a href="#" style="color:#777; text-decoration:none;">이용약관</a>
+        <a href="#" style="color:#777; text-decoration:none;">개인정보처리방침</a>
+        <a href="#" style="color:#777; text-decoration:none;">위치기반서비스 이용약관</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 토스트 알림 컨테이너 -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- -------------------------------------------------------------
+       JAVASCRIPT: 나이키 스토어 인터랙션 & 데이터 엔진
+       ------------------------------------------------------------- -->
+  <script>
+    // 1. 제품 데이터베이스
+    const PRODUCTS = [
+      {
+        id: 1,
+        name: "나이키 에어맥스 펄스 (Air Max Pulse)",
+        category: "running",
+        categoryName: "러닝",
+        subtitle: "남성 신발",
+        price: 179000,
+        originalPrice: null,
+        badge: "NEW",
+        badgeType: "",
+        img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80",
+        desc: "런던의 언더그라운드 뮤직 씬에서 영감을 받은 에어맥스 펄스는 포인티드 에어 쿠셔닝을 장착하여 최상의 반발력과 스타일을 제공합니다."
+      },
+      {
+        id: 2,
+        name: "나이키 에어포스 1 '07 (Air Force 1 '07)",
+        category: "lifestyle",
+        categoryName: "라이프스타일",
+        subtitle: "남녀공용 신발",
+        price: 139000,
+        originalPrice: null,
+        badge: "BEST",
+        badgeType: "",
+        img: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=700&q=80",
+        desc: "농구 코트에서 탄생해 스트리트의 아이콘이 된 에어포스 1 '07. 깔끔한 천연 가죽 소재와 세월이 흘러도 변치 않는 완벽한 실루엣을 자랑합니다."
+      },
+      {
+        id: 3,
+        name: "에어 조던 1 레트로 하이 OG",
+        category: "jordan",
+        categoryName: "조던",
+        subtitle: "남성 신발",
+        price: 219000,
+        originalPrice: null,
+        badge: "SNKRS",
+        badgeType: "",
+        img: "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=700&q=80",
+        desc: "마이클 조던의 전설적인 첫 시그니처 슈즈. 고급 가죽과 에어솔 유닛이 오리지널 1985년의 헤리티지를 그대로 재현합니다."
+      },
+      {
+        id: 4,
+        name: "나이키 덩크 로우 레트로 (Dunk Low)",
+        category: "lifestyle",
+        categoryName: "라이프스타일",
+        subtitle: "남녀공용 신발",
+        price: 111200,
+        originalPrice: 139000,
+        badge: "20% OFF",
+        badgeType: "sale",
+        img: "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?auto=format&fit=crop&w=700&q=80",
+        desc: "80년대 농구 코트의 아이콘이 스트리트웨어의 정점으로 재탄생했습니다. 산뜻한 패널 블록과 부드러운 패딩 카라로 온종일 편안합니다."
+      },
+      {
+        id: 5,
+        name: "나이키 줌X 베이퍼플라이 3 (Vaporfly 3)",
+        category: "running",
+        categoryName: "러닝",
+        subtitle: "남성 로드 레이싱화",
+        price: 299000,
+        originalPrice: null,
+        badge: "PRO",
+        badgeType: "",
+        img: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=700&q=80",
+        desc: "마라톤 풀코스 기록 경신을 위한 궁극의 스피드 머신. 탄소섬유 플라이플레이트와 나이키 최고 반응성의 줌X 폼이 폭발적인 추진력을 선사합니다."
+      },
+      {
+        id: 6,
+        name: "나이키 자이언 3 PF (Zion 3)",
+        category: "basketball",
+        categoryName: "농구",
+        subtitle: "남성 농구화",
+        price: 143200,
+        originalPrice: 179000,
+        badge: "SALE",
+        badgeType: "sale",
+        img: "https://images.unsplash.com/photo-1579338559194-a162d19bf842?auto=format&fit=crop&w=700&q=80",
+        desc: "자이언 윌리엄슨의 강력한 도약과 파워를 서포트하는 농구화. 코트 바닥을 장악하는 접지력과 드롭인 쿠셔닝이 완벽한 기동성을 지원합니다."
+      },
+      {
+        id: 7,
+        name: "조던 루카 2 PF (Luka 2)",
+        category: "basketball",
+        categoryName: "농구",
+        subtitle: "남성 농구화",
+        price: 159000,
+        originalPrice: null,
+        badge: "HOT",
+        badgeType: "",
+        img: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=700&q=80",
+        desc: "루카 돈치치의 마법 같은 스텝백을 구현하기 위한 설계. 유연한 지지력과 이중 밀도 폼이 스텝의 방향 전환을 안정적으로 서포트합니다."
+      },
+      {
+        id: 8,
+        name: "나이키 인피니티RN 4 (InfinityRN 4)",
+        category: "running",
+        categoryName: "러닝",
+        subtitle: "로드 러닝화",
+        price: 143200,
+        originalPrice: 179000,
+        badge: "SALE",
+        badgeType: "sale",
+        img: "https://images.unsplash.com/photo-1582588678413-dbf45f4823e9?auto=format&fit=crop&w=700&q=80",
+        desc: "나이키의 완전히 새로워진 리액트X 폼을 탑재하여 13% 향상된 에너지 리턴과 친환경 풋프린트를 구현한 부드러운 쿠셔닝 러닝화입니다."
+      }
+    ];
+
+    // 2. 상태 관리 (장바구니, 위시리스트, 선택 필터)
+    let cart = [];
+    let wishlist = new Set();
+    let selectedCategory = 'all';
+    let selectedSize = 260;
+    let currentModalProduct = null;
+
+    // 3. 상품 목록 렌더링
+    function renderProducts(items) {
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = '';
+
+      if (items.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; color: #888;">
+            <h3>검색 결과가 없습니다.</h3>
+            <p style="margin-top: 0.5rem;">다른 키워드로 검색해 보세요.</p>
+          </div>
+        `;
+        return;
+      }
+
+      items.forEach(p => {
+        const isWished = wishlist.has(p.id);
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.onclick = () => openProductModal(p.id);
+
+        card.innerHTML = `
+          <div class="product-thumb-box">
+            ${p.badge ? `<span class="badge-tag ${p.badgeType}">${p.badge}</span>` : ''}
+            <button class="wish-btn ${isWished ? 'active' : ''}" onclick="event.stopPropagation(); toggleWishlist(${p.id})">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="${isWished ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </button>
+            <img src="${p.img}" alt="${p.name}" loading="lazy">
+          </div>
+          <div class="product-info">
+            <span class="product-category-label">${p.categoryName}</span>
+            <div class="product-name">${p.name}</div>
+            <div class="product-subtitle">${p.subtitle}</div>
+            <div class="product-price-row">
+              <div>
+                <span class="price-text">₩${p.price.toLocaleString()}</span>
+                ${p.originalPrice ? `<span class="original-price">₩${p.originalPrice.toLocaleString()}</span>` : ''}
+              </div>
+              <button class="add-cart-btn-mini" onclick="event.stopPropagation(); quickAddToCart(${p.id})">
+                + 담기
+              </button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      document.getElementById('catalogTitle').innerText = `${selectedCategory.toUpperCase()} PRODUCTS (${items.length})`;
+    }
+
+    // 4. 카테고리 필터링
+    function filterCategory(cat, el) {
+      selectedCategory = cat;
+
+      // 필터 버튼 활성화 스타일 업데이트
+      document.querySelectorAll('.pill-btn, .nav-item').forEach(b => b.classList.remove('active'));
+      if (el) el.classList.add('active');
+
+      let filtered = PRODUCTS;
+      if (cat === 'sale') {
+        filtered = PRODUCTS.filter(p => p.originalPrice !== null);
+      } else if (cat !== 'all') {
+        filtered = PRODUCTS.filter(p => p.category === cat);
+      }
+
+      renderProducts(filtered);
+    }
+
+    // 5. 실시간 검색
+    function handleSearch() {
+      const q = document.getElementById('searchInput').value.trim().toLowerCase();
+      if (!q) {
+        filterCategory(selectedCategory);
+        return;
+      }
+      const filtered = PRODUCTS.filter(p => 
+        p.name.toLowerCase().includes(q) || 
+        p.categoryName.toLowerCase().includes(q) ||
+        p.subtitle.toLowerCase().includes(q)
+      );
+      renderProducts(filtered);
+    }
+
+    // 6. 장바구니 기능
+    function quickAddToCart(productId) {
+      const p = PRODUCTS.find(item => item.id === productId);
+      if (!p) return;
+      addToCart(p, 265);
+    }
+
+    function addToCart(product, size) {
+      const existing = cart.find(item => item.id === product.id && item.size === size);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          img: product.img,
+          size: size,
+          qty: 1
+        });
+      }
+      updateCartUI();
+      showToast(`'${product.name}' 장바구니에 담겼습니다 (사이즈: ${size}mm)`);
+      toggleCartDrawer(true);
+    }
+
+    function updateCartQty(idx, delta) {
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) {
+        cart.splice(idx, 1);
+      }
+      updateCartUI();
+    }
+
+    function removeCartItem(idx) {
+      cart.splice(idx, 1);
+      updateCartUI();
+      showToast('상품이 장바구니에서 삭제되었습니다.');
+    }
+
+    function updateCartUI() {
+      const listEl = document.getElementById('cartItemsList');
+      const totalCount = cart.reduce((acc, item) => acc + item.qty, 0);
+      const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+
+      document.getElementById('cartCount').innerText = totalCount;
+      document.getElementById('cartHeaderCount').innerText = totalCount;
+      document.getElementById('cartSubtotal').innerText = '₩' + subtotal.toLocaleString();
+      document.getElementById('cartTotal').innerText = '₩' + subtotal.toLocaleString();
+
+      if (cart.length === 0) {
+        listEl.innerHTML = `
+          <div class="empty-cart-msg">
+            <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+            <p style="font-weight:700; font-size:1rem; margin-bottom:0.4rem;">장바구니가 비어 있습니다.</p>
+            <p style="font-size:0.85rem;">원하는 스니커즈를 담아보세요!</p>
+          </div>
+        `;
+        return;
+      }
+
+      listEl.innerHTML = '';
+      cart.forEach((item, idx) => {
+        const itemEl = document.createElement('div');
+        itemEl.className = 'cart-item';
+        itemEl.innerHTML = `
+          <div class="cart-item-thumb">
+            <img src="${item.img}" alt="${item.name}">
+          </div>
+          <div class="cart-item-details">
+            <div>
+              <div class="cart-item-title">${item.name}</div>
+              <div class="cart-item-meta">사이즈: ${item.size}mm</div>
+            </div>
+            <div class="cart-item-actions">
+              <div class="qty-controls">
+                <button class="qty-btn" onclick="updateCartQty(${idx}, -1)">-</button>
+                <span style="font-size:0.85rem; font-weight:700;">${item.qty}</span>
+                <button class="qty-btn" onclick="updateCartQty(${idx}, 1)">+</button>
+              </div>
+              <div class="cart-item-price">₩${(item.price * item.qty).toLocaleString()}</div>
+              <button class="remove-item-btn" onclick="removeCartItem(${idx})">삭제</button>
+            </div>
+          </div>
+        `;
+        listEl.appendChild(itemEl);
+      });
+    }
+
+    function toggleCartDrawer(open) {
+      const backdrop = document.getElementById('cartBackdrop');
+      if (open) {
+        backdrop.classList.add('open');
+      } else {
+        backdrop.classList.remove('open');
+      }
+    }
+
+    function handleCheckout() {
+      if (cart.length === 0) {
+        alert('장바구니에 담긴 상품이 없습니다.');
+        return;
+      }
+      const total = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+      alert(`🎉 주문 결제가 완료되었습니다!\n\n총 결제금액: ₩${total.toLocaleString()}\n배송지: 서울시 강남구 테헤란로 (기본 배송지)\n\n감사합니다! Just Do It.`);
+      cart = [];
+      updateCartUI();
+      toggleCartDrawer(false);
+    }
+
+    // 7. 위시리스트
+    function toggleWishlist(id) {
+      if (wishlist.has(id)) {
+        wishlist.delete(id);
+        showToast('위시리스트에서 제외되었습니다.');
+      } else {
+        wishlist.add(id);
+        showToast('위시리스트에 추가되었습니다. ♡');
+      }
+      document.getElementById('wishCount').innerText = wishlist.size;
+      renderProducts(PRODUCTS.filter(p => selectedCategory === 'all' || p.category === selectedCategory));
+    }
+
+    function openWishlistModal() {
+      if (wishlist.size === 0) {
+        showToast('위시리스트가 비어 있습니다.');
+        return;
+      }
+      const wishedItems = PRODUCTS.filter(p => wishlist.has(p.id));
+      renderProducts(wishedItems);
+      document.getElementById('catalogTitle').innerText = `MY WISHLIST (${wishedItems.length})`;
+      showToast('위시리스트 상품만 필터링하여 표시합니다.');
+    }
+
+    // 8. 상품 모달
+    function openProductModal(productId) {
+      const p = PRODUCTS.find(item => item.id === productId);
+      if (!p) return;
+      currentModalProduct = p;
+
+      document.getElementById('modalImg').src = p.img;
+      document.getElementById('modalName').innerText = p.name;
+      document.getElementById('modalCategory').innerText = p.categoryName;
+      document.getElementById('modalPrice').innerText = '₩' + p.price.toLocaleString();
+      document.getElementById('modalDesc').innerText = p.desc;
+
+      document.getElementById('productModal').classList.add('open');
+    }
+
+    function closeProductModal() {
+      document.getElementById('productModal').classList.remove('open');
+    }
+
+    function selectSize(size, btn) {
+      selectedSize = size;
+      document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+    }
+
+    function addCurrentModalToCart() {
+      if (!currentModalProduct) return;
+      addToCart(currentModalProduct, selectedSize);
+      closeProductModal();
+    }
+
+    function toggleCurrentModalWishlist() {
+      if (!currentModalProduct) return;
+      toggleWishlist(currentModalProduct.id);
+    }
+
+    // 9. 토스트 알림 표시
+    function showToast(message) {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      toast.className = 'toast-msg';
+      toast.innerHTML = `<span>✓</span><span>${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        if (toast.parentNode) toast.parentNode.removeChild(toast);
+      }, 3000);
+    }
+
+    // 10. 초기화 렌더링
+    renderProducts(PRODUCTS);
+    updateCartUI();
+  </script>
+</body>
+</html>
